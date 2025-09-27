@@ -1,5 +1,5 @@
 const API_URL = "https://notehub-public.goit.study/api";
-const token = import.meta.env.VITE_NOTEHUB_TOKEN;
+const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -50,3 +50,8 @@ export async function deleteNote(id: string): Promise<Note> {
   const { data } = await api.delete<Note>(`/notes/${id}`);
   return data;
 }
+
+export const fetchNoteById = async (id: number) => {
+  const res = await axios.get(`/notes/${id}`);
+  return res.data;
+};
