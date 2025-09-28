@@ -2,7 +2,7 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { fetchNotes } from "../../lib/api";
 import NotesClient from "./Notes.client";
 
-export const dynamic = "force-dynamic"; // щоб перезавантажувалося при кожному запиті
+export const dynamic = "force-dynamic";
 
 export default async function NotesPage() {
   const queryClient = new QueryClient();

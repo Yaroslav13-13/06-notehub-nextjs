@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchNotes } from "../../lib/api";
 import NoteList from "../../components/NoteList/NoteList";
 import Loader from "../../components/Loader/Loader";
@@ -29,59 +29,10 @@ const NotesClient: React.FC = () => {
   const [notificationType, setNotificationType] =
     useState<NotificationType>("success");
 
-  const queryClient = new QueryClient();
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NotesContent
-        page={page}
-        setPage={setPage}
-        search={search}
-        setSearch={setSearch}
-        debouncedSearch={debouncedSearch}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        notification={notification}
-        setNotification={setNotification}
-        notificationType={notificationType}
-        setNotificationType={setNotificationType}
-      />
-    </QueryClientProvider>
-  );
-};
-
-// Виніс всю логіку SPA в NotesContent
-interface NotesContentProps {
-  page: number;
-  setPage: (n: number) => void;
-  search: string;
-  setSearch: (v: string) => void;
-  debouncedSearch: string;
-  isModalOpen: boolean;
-  setIsModalOpen: (b: boolean) => void;
-  notification: string | null;
-  setNotification: (s: string | null) => void;
-  notificationType: NotificationType;
-  setNotificationType: (t: NotificationType) => void;
-}
-
-const NotesContent: React.FC<NotesContentProps> = ({
-  page,
-  setPage,
-  search,
-  setSearch,
-  debouncedSearch,
-  isModalOpen,
-  setIsModalOpen,
-  notification,
-  setNotification,
-  notificationType,
-  setNotificationType,
-}) => {
   const { data, isLoading, isError } = useQuery<FetchNotesResponse, Error>({
     queryKey: ["notes", page, debouncedSearch],
     queryFn: () => fetchNotes({ page, perPage: 12, search: debouncedSearch }),
-    placeholderData: (previousData) => previousData,
+    placeholderData: (prev) => prev,
   });
 
   const notes: Note[] = data?.notes ?? [];
@@ -106,13 +57,7 @@ const NotesContent: React.FC<NotesContentProps> = ({
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "1rem",
-        }}
-      >
+      <div>
         <SearchBox value={search} onChange={setSearch} />
         <button onClick={() => setIsModalOpen(true)}>+ Create note</button>
       </div>

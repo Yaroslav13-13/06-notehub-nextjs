@@ -1,36 +1,11 @@
 "use client";
 
 import React from "react";
-import {
-  useQuery,
-  QueryClient,
-  QueryClientProvider,
-  Hydrate,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchNoteById } from "../../../lib/api";
 import type { Note } from "../../../types/note";
 import Loader from "../../../components/Loader/Loader";
 import css from "./NoteDetails.module.css";
-
-interface NoteDetailsClientProps {
-  noteId: string;
-  dehydratedState: unknown;
-}
-
-const NoteDetailsClient: React.FC<NoteDetailsClientProps> = ({
-  noteId,
-  dehydratedState,
-}) => {
-  const queryClient = new QueryClient();
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={dehydratedState}>
-        <NoteDetailsContent noteId={noteId} />
-      </Hydrate>
-    </QueryClientProvider>
-  );
-};
 
 const NoteDetailsContent: React.FC<{ noteId: string }> = ({ noteId }) => {
   const {
@@ -42,7 +17,7 @@ const NoteDetailsContent: React.FC<{ noteId: string }> = ({ noteId }) => {
     queryFn: () => fetchNoteById(noteId),
   });
 
-  if (isLoading) return <p>Loading, please wait...</p>;
+  if (isLoading) return <Loader />;
   if (isError || !note) return <p>Something went wrong.</p>;
 
   return (
@@ -61,4 +36,4 @@ const NoteDetailsContent: React.FC<{ noteId: string }> = ({ noteId }) => {
   );
 };
 
-export default NoteDetailsClient;
+export default NoteDetailsContent;
