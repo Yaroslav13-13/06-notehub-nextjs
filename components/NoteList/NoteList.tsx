@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Link from "next/link";
 import css from "./NoteList.module.css";
-import { deleteNote } from "../../services/noteService";
+import { deleteNote } from "../../lib/api";
 import type { Note } from "../../types/note";
 
 interface NoteListProps {
@@ -21,6 +24,7 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
   const handleDelete = (id: string) => {
     mutation.mutate(id);
   };
+
   return (
     <ul className={css.list}>
       {notes.map((note) => (
@@ -36,6 +40,11 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
               <p className={css.content}>{note.content}</p>
               <div className={css.footer}>
                 {note.tag && <span className={css.tag}>{note.tag}</span>}
+
+                <Link href={`/notes/${note.id}`} className={css.viewButton}>
+                  View Details
+                </Link>
+
                 <button
                   className={css.button}
                   onClick={() => handleDelete(note.id)}

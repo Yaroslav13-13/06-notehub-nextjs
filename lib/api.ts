@@ -1,3 +1,6 @@
+import axios from "axios";
+import type { Note, NoteTag } from "../types/note";
+
 const API_URL = "https://notehub-public.goit.study/api";
 const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
@@ -30,6 +33,13 @@ export async function fetchNotes(
   return data;
 }
 
+export async function fetchNoteById(id: string): Promise<Note> {
+  const { data } = await api.get<Note>(`/notes/${id}`, {
+    headers: { "Cache-Control": "no-cache" },
+  });
+  return data;
+}
+
 export interface CreateNotePayload {
   title: string;
   content?: string;
@@ -50,8 +60,3 @@ export async function deleteNote(id: string): Promise<Note> {
   const { data } = await api.delete<Note>(`/notes/${id}`);
   return data;
 }
-
-export const fetchNoteById = async (id: number) => {
-  const res = await axios.get(`/notes/${id}`);
-  return res.data;
-};
