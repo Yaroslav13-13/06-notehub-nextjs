@@ -1,22 +1,50 @@
 import css from "./page.module.css";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main>
-      <div className={css.container}>
-        <h1 className={css.title}>Welcome to NoteHub</h1>
-        <p className={css.description}>
-          NoteHub is a simple and efficient application designed for managing
-          personal notes. It helps keep your thoughts organized and accessible
-          in one place, whether you are at home or on the go.
-        </p>
-        <p className={css.description}>
-          The app provides a clean interface for writing, editing, and browsing
-          notes. With support for keyword search and structured organization,
-          NoteHub offers a streamlined experience for anyone who values clarity
-          and productivity.
-        </p>
-      </div>
-    </main>
+    <div className={css.app}>
+      <main className={css.main}>
+        {/* Hero Section */}
+        <section className={css.hero}>
+          <h1 className={css.title}>Boost Your Productivity with NoteHub</h1>
+          <p className={css.subtitle}>
+            The smartest way to create, organize and manage your notes — simple,
+            fast and modern.
+          </p>
+          <div className={css.heroActions}>
+            <button className={css.ctaButton}>Get Started</button>
+            <button className={css.secondaryButton}>Learn More</button>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className={css.features}>
+          <div className={css.featureCard}>
+            <span className={css.icon}>⚡</span>
+            <h3>Lightning Fast</h3>
+            <p>Experience instant note creation and browsing.</p>
+          </div>
+          <div className={css.featureCard}>
+            <span className={css.icon}>🔒</span>
+            <h3>Secure</h3>
+            <p>Your notes are encrypted and private by default.</p>
+          </div>
+          <div className={css.featureCard}>
+            <span className={css.icon}>📂</span>
+            <h3>Organized</h3>
+            <p>Keep everything structured with smart categories.</p>
+          </div>
+        </section>
+
+        {/* Why Us */}
+        <section className={css.whyUs}>
+          <h2>Why Choose NoteHub?</h2>
+          <p>
+            Unlike traditional note apps, NoteHub combines speed, design and
+            security into one seamless experience.
+          </p>
+        </section>
+      </main>
+    </div>
   );
 }

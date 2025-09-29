@@ -12,6 +12,7 @@ import Modal from "../../components/Modal/Modal";
 import Notification from "../../components/Notification/Notification";
 import { useDebounce } from "use-debounce";
 import type { Note } from "../../types/note";
+import css from "../../components/SearchBox/SearchBox.module.css";
 
 interface FetchNotesResponse {
   notes: Note[];
@@ -57,9 +58,11 @@ const NotesClient: React.FC = () => {
 
   return (
     <div>
-      <div>
+      <div className={css.searchbox}>
         <SearchBox value={search} onChange={setSearch} />
-        <button onClick={() => setIsModalOpen(true)}>+ Create note</button>
+        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+          + Create note
+        </button>
       </div>
 
       {isLoading && <Loader />}
