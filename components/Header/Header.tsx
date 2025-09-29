@@ -37,7 +37,9 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <button className={css.signIn}>Sign In</button>
+      <Link href="/signin" className={css.signIn}>
+        Sign In
+      </Link>
     </header>
   );
 }

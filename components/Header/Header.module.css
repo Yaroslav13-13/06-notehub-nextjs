@@ -101,3 +101,14 @@
 .nav a.active::after {
   transform: scaleX(1) scaleY(1);
 }
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #93c5fd;
+}

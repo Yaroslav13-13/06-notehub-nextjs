@@ -119,6 +119,7 @@
   background: linear-gradient(135deg, #004182, #0a66c2);
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
+  color: #5d9cfa;
 }
 
 .footer {

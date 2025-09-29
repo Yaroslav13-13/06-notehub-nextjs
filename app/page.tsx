@@ -1,4 +1,5 @@
 import css from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,8 +13,12 @@ export default function Home() {
             fast and modern.
           </p>
           <div className={css.heroActions}>
-            <button className={css.ctaButton}>Get Started</button>
-            <button className={css.secondaryButton}>Learn More</button>
+            <Link href="/notes" className={css.ctaButton}>
+              Get Started
+            </Link>
+            <Link href="/about" className={css.secondaryButton}>
+              Learn More
+            </Link>
           </div>
         </section>
 
