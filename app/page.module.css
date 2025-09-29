@@ -25,6 +25,8 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
+  width: 800px;
+  margin: 0 auto;
 }
 
 .subtitle {
