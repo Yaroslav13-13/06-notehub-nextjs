@@ -7,12 +7,13 @@
   background: #f9fafb;
   transition: all 0.2s ease;
   color: #111827;
+  background: linear-gradient(135deg, #fff, #75b6fb);
 }
 
 .input:focus {
   outline: none;
   border-color: #0a66c2;
-  background: #fff;
+  background: linear-gradient(135deg, #75b6fb, #fff);
   box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.15);
 }
 
@@ -25,8 +26,8 @@
   padding: 12px 20px;
   font-size: 15px;
   font-weight: 600;
-  background: linear-gradient(135deg, #0a66c2, #004182);
-  color: #fff;
+  background: linear-gradient(135deg, #75b6fb, #fff);
+  color: #000000;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
@@ -38,12 +39,13 @@
   background: linear-gradient(135deg, #004182, #0a66c2);
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
+  color: #fff;
 }
 
 .searchbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 50px;
+  padding: 25px 50px 5px;
   color: #fff;
 }

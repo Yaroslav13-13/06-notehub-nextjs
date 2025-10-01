@@ -1,26 +1,28 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental";
 
 interface TanStackProviderProps {
   children: ReactNode;
-  dehydratedState?: unknown;
+  dehydratedState?: unknown; // для серверного стану
 }
 
 const TanStackProvider: React.FC<TanStackProviderProps> = ({
   children,
   dehydratedState,
 }) => {
-  const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient());
+
+  // Якщо є dehydratedState, можна "гідрувати" вручну:
+  if (dehydratedState) {
+    import("@tanstack/react-query").then(({ hydrate }) => {
+      hydrate(queryClient, dehydratedState);
+    });
+  }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryStreamedHydration state={dehydratedState}>
-        {children}
-      </ReactQueryStreamedHydration>
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
 

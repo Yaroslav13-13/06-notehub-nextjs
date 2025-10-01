@@ -43,7 +43,7 @@
 
 /* Активна сторінка */
 .pagination li.active {
-  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  background: linear-gradient(135deg, #004182, #0a66c2);
   border-color: #0d6efd;
   box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
 }

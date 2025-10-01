@@ -1,5 +1,6 @@
 import css from "./page.module.css";
 import Link from "next/link";
+import { FaBolt, FaLock, FaFolderOpen } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -25,17 +26,17 @@ export default function Home() {
         {/* Features */}
         <section className={css.features}>
           <div className={css.featureCard}>
-            <span className={css.icon}>⚡</span>
+            <FaBolt className={css.icon} />
             <h3>Lightning Fast</h3>
             <p>Experience instant note creation and browsing.</p>
           </div>
           <div className={css.featureCard}>
-            <span className={css.icon}>🔒</span>
+            <FaLock className={css.icon} />
             <h3>Secure</h3>
             <p>Your notes are encrypted and private by default.</p>
           </div>
           <div className={css.featureCard}>
-            <span className={css.icon}>📂</span>
+            <FaFolderOpen className={css.icon} />
             <h3>Organized</h3>
             <p>Keep everything structured with smart categories.</p>
           </div>

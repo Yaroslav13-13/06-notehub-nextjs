@@ -34,7 +34,7 @@
 // }
 
 import styles from "@/app/about/About.module.css";
-import { FiEdit, FiFolder, FiMoon, FiMail } from "react-icons/fi";
+import { FiEdit, FiFolder, FiMoon } from "react-icons/fi";
 
 export default function About() {
   return (
@@ -52,16 +52,13 @@ export default function About() {
         <h2>Features</h2>
         <ul>
           <li>
-            <FiEdit color="#4caf50" className={styles.icon} /> Create and edit
-            notes
+            <FiEdit className={styles.icon} /> Create and edit notes
           </li>
           <li>
-            <FiFolder color="#2196f3" className={styles.icon} /> Organize and
-            quickly search
+            <FiFolder className={styles.icon} /> Organize and quickly search
           </li>
           <li>
-            <FiMoon color="#ff9800" className={styles.icon} /> Light and dark
-            theme
+            <FiMoon className={styles.icon} /> Light and dark theme
           </li>
         </ul>
       </section>

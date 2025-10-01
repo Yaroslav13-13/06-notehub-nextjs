@@ -33,9 +33,9 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
-  color: #212529;
+  color: #ffffff;
 }
 
 .input,
@@ -47,7 +47,10 @@
   border: 1px solid #ced4da;
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  background: linear-gradient(135deg, #75b6fb, #fff);
 }
 
 .input:focus,
@@ -72,18 +75,21 @@
 .submitButton {
   padding: 10px 20px;
   font-size: 16px;
-  background: linear-gradient(135deg, #0a66c2, #004182);
-  color: #fff;
+  background: linear-gradient(135deg, #75b6fb, #ffffff);
+  color: #000000;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .submitButton:hover {
   background: linear-gradient(135deg, #004182, #0a66c2);
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
+  color: #fff;
 }
 
 .submitButton:disabled {
@@ -99,7 +105,9 @@
   border: 1px solid #0a66c2;
   border-radius: 9999px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .cancelButton:hover {
@@ -112,4 +120,44 @@
   color: #dc3545;
   font-size: 12px;
   margin-top: 4px;
+}
+
+.select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.select option {
+  padding: 6px;
+}
+
+/* Кольори для кожного тегу */
+.tag_todo {
+  background: #75b6fb;
+
+  color: #00ffff;
+}
+
+.tag_work {
+  background: #75b6fb;
+
+  color: #ff0000;
+}
+
+.tag_personal {
+  background: #75b6fb;
+
+  color: #00ff2f;
+}
+
+.tag_meeting {
+  background: #75b6fb;
+  color: #ffee00;
+}
+
+.tag_shopping {
+  background: #75b6fb;
+
+  color: #d100ed;
 }

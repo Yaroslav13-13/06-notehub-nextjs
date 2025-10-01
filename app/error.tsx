@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import css from "./Error.module.css";
 
 export default function Error({
   error,
@@ -14,21 +15,10 @@ export default function Error({
   }, [error]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Упс! Сталася помилка 🚨</h2>
-      <p>{error.message}</p>
-      <button
-        onClick={() => reset()}
-        style={{
-          padding: "8px 16px",
-          marginTop: "12px",
-          background: "#0070f3",
-          color: "#fff",
-          border: "none",
-          borderRadius: "6px",
-          cursor: "pointer",
-        }}
-      >
+    <div className={css.container}>
+      <h2 className={css.heading}>Упс! Сталася помилка 🚨</h2>
+      <p className={css.message}>{error.message}</p>
+      <button onClick={reset} className={css.button}>
         Спробувати знову
       </button>
     </div>

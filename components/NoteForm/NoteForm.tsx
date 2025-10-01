@@ -64,7 +64,11 @@ const NoteForm: React.FC<NoteFormProps> = ({ onCancel }) => {
             Tag
             <Field as="select" name="tag" className={css.select}>
               {noteTags.map((tag) => (
-                <option key={tag} value={tag}>
+                <option
+                  key={tag}
+                  value={tag}
+                  className={css[`tag_${tag.toLowerCase()}`]}
+                >
                   {tag}
                 </option>
               ))}
