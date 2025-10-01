@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 interface TanStackProviderProps {
   children: ReactNode;
-  dehydratedState?: unknown; // для серверного стану
+  dehydratedState?: unknown;
 }
 
 const TanStackProvider: React.FC<TanStackProviderProps> = ({
@@ -14,7 +14,6 @@ const TanStackProvider: React.FC<TanStackProviderProps> = ({
 }) => {
   const [queryClient] = useState(() => new QueryClient());
 
-  // Якщо є dehydratedState, можна "гідрувати" вручну:
   if (dehydratedState) {
     import("@tanstack/react-query").then(({ hydrate }) => {
       hydrate(queryClient, dehydratedState);
