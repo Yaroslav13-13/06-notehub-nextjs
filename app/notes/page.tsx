@@ -1,6 +1,7 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { fetchNotes } from "../../lib/api";
 import NotesClient from "./Notes.client";
+import TanStackProvider from "../../components/TanStackProvider/TanStackProvider";
 
 export const dynamic = "force-dynamic";
 
@@ -12,5 +13,9 @@ export default async function NotesPage() {
     queryFn: () => fetchNotes({ page: 1, perPage: 12, search: "" }),
   });
 
-  return <NotesClient dehydratedState={dehydrate(queryClient)} />;
+  return (
+    <TanStackProvider dehydratedState={dehydrate(queryClient)}>
+      <NotesClient />
+    </TanStackProvider>
+  );
 }
