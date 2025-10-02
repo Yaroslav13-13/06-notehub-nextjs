@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <div className={css.container}>
-      <h2 className={css.heading}>Упс! Сталася помилка 🚨</h2>
+      <h2 className={css.heading}>Oops! An error occurred 🚨</h2>
       <p className={css.message}>{error.message}</p>
       <button onClick={reset} className={css.button}>
         Спробувати знову
