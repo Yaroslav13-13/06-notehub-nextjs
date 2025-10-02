@@ -1,4 +1,4 @@
-import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 import { fetchNoteById } from "../../../lib/api";
 import NoteDetailsClient from "./NoteDetails.client";
 import TanStackProvider from "../../../components/TanStackProvider/TanStackProvider";
@@ -17,7 +17,7 @@ export default async function NoteDetailsPage({
   });
 
   return (
-    <TanStackProvider dehydratedState={dehydrate(queryClient)}>
+    <TanStackProvider>
       <NoteDetailsClient noteId={id} />
     </TanStackProvider>
   );
