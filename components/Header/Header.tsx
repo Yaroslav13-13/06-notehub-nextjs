@@ -28,12 +28,12 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link
+            {/* <Link
               href="/about"
               className={pathname === "/about" ? css.active : ""}
             >
               About
-            </Link>
+            </Link> */}
           </li>
         </ul>
       </nav>

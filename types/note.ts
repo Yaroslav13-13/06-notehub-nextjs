@@ -1,9 +1,10 @@
-export type NoteTag = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+export type NoteTag = "work" | "personal" | "study" | "other";
 
 export interface Note {
   id: string;
   title: string;
   content: string;
-  tag?: NoteTag; // необов'язково
+  tag: NoteTag;
   createdAt: string;
+  updatedAt: string;
 }
