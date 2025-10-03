@@ -35,7 +35,7 @@
   flex-direction: column;
   font-size: 18px;
   font-weight: 500;
-  color: #ffffff;
+  color: #000000;
 }
 
 .input,
@@ -50,7 +50,7 @@
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
-  background: linear-gradient(135deg, #75b6fb, #fff);
+  /* background: linear-gradient(135deg, #75b6fb, #fff); */
 }
 
 .input:focus,
@@ -75,8 +75,8 @@
 .submitButton {
   padding: 10px 20px;
   font-size: 16px;
-  background: linear-gradient(135deg, #75b6fb, #ffffff);
-  color: #000000;
+  background: #3b82f6;
+  color: white;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
@@ -86,7 +86,7 @@
 }
 
 .submitButton:hover {
-  background: linear-gradient(135deg, #004182, #0a66c2);
+  background: #2563eb;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
   color: #fff;
