@@ -32,21 +32,21 @@ export default function Footer() {
             <Link
               href="https://www.linkedin.com/in/yaroslav-pron-270b26329/"
               aria-label="LinkedIn"
-              target="blank"
+              target="_blank"
             >
               <FaLinkedin />
             </Link>
             <Link
               href="https://github.com/Yaroslav13-13"
               aria-label="GitHub"
-              target="blank"
+              target="_blank"
             >
               <FaGithub />
             </Link>
             <Link
               href="https://instagram.com"
               aria-label="Instagram"
-              target="blank"
+              target="_blank"
             >
               <FaInstagram />
             </Link>
